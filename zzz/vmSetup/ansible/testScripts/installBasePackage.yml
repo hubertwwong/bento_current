@@ -1,0 +1,17 @@
+---
+- hosts: all
+  vars:
+    packages:
+      - "curl"
+      - "git"
+      - "gnupg"
+      - "htop"
+      - "tmux"
+      - "vim"
+  tasks:
+  - name: Install basic packages
+    apt:
+      name: "{{item}}"
+      state: installed
+    with_items: "{{packages}}"
+    become: true

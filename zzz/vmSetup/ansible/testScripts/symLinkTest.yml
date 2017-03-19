@@ -1,0 +1,18 @@
+---
+- hosts: all
+  vars:
+    foo: hello
+    dir_dot_files_src: /vagrant/zzz/vmSetup/ansible/config/dotFiles
+    dir_foo1: /vagrant/zzz/vmSetup/ansible/testScripts/foo1
+    dir_foo2: /vagrant/zzz/vmSetup/ansible/testScripts/foo2
+    dir_home: /home/vagrant
+    files_dot_files:
+      - "hello2.txt"
+      - "hello.txt"
+  tasks:
+  - name: delete and symlink files.
+    file:
+      src: "{{dir_foo1}}/{{item}}"
+      dest: "{{dir_foo2}}/{{item}}"
+      state: link
+    with_items: "{{files_dot_files}}"

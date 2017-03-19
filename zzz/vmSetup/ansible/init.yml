@@ -1,0 +1,11 @@
+---
+- hosts: all
+  vars:
+    foo: hello
+  roles:
+  - common
+  tasks:
+  - name: Symlinking all of the files.
+    shell: ls -al
+  - name: Debug test
+    debug: "{{common.path}}"

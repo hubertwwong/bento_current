@@ -1,0 +1,31 @@
+---
+- hosts: all
+  vars:
+    foo: hello
+    dir_dot_files_src: /vagrant/zzz/vmSetup/config/dotFiles
+    dir_home: /home/vagrant
+    files_dot_files:
+      - ".alias"
+      - ".ansible.cfg"
+      - ".bash_aliases"
+      - ".bash_profile"
+      - ".bashrc"
+      - ".env"
+      - ".profile"
+      - ".rspec"
+      - ".tmux.conf"
+      - ".vimrc"
+
+  tasks:
+  - name: Delete the dot files.
+    file:
+      path: "{{dir_home}}/{{item}}"
+      state: absent
+    with_items: "{{files_dot_files}}"
+
+  - name: Symlink config files.
+    file:
+      src: "{{dir_dot_files_src}}/{{item}}"
+      dest: "{{dir_home}}/{{item}}"
+      state: link
+    with_items: "{{files_dot_files}}"

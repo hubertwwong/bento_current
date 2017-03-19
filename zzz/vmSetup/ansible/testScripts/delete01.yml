@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars:
+    foo: hello
+    f1: /vagrant/zzz/vmSetup/ansible/testScripts/foo1/hello.txt
+  tasks:
+  - name: delete test.
+    file:
+      state: absent
+      path: "{{f1}}"

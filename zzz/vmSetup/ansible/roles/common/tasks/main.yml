@@ -1,0 +1,15 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: Apt upgrading all packages.
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: dist
+  become: true
+
+- name: Debug test 11
+  debug: "{{foo12345}}.stdout_lines"
+
+- name: Copy stuff
+  shell: "cp {{s1}} {{d1}}"

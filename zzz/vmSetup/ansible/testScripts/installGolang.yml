@@ -1,0 +1,26 @@
+---
+- hosts: all
+  
+  vars:
+    golang_ver: 1.8
+    golang_platform: 64
+    dir_golang: /usr/local/go
+    dir_usr_local: /usr/local
+
+  tasks:
+  - name: Download golang.
+    get_url: 
+      url: "https://storage.googleapis.com/golang/go{{golang_ver}}.linux-amd{{golang_platform}}.tar.gz"
+      dest: /tmp/golang{{golang_ver}}.tar.gz
+  
+  - name: Delete golang dir.
+    file:
+      path: "{{dir_golang}}/"
+      state: absent
+    become: true
+  
+  - name: Install golang.
+    unarchive:
+      src: /tmp/golang{{golang_ver}}.tar.gz
+      dest: "{{dir_usr_local}}"
+    become: true

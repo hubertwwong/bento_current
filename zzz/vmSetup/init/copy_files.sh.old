@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# ENV.
+source /vagrant/zzz/vmSetup/config/dotFiles/.env
+
+#Look at init links for the path to change this to.
+VAGRANT_PATH=/home/vagrant/vmSetup
+
+# copy the dot files to home root
+#yes | cp -rf /vagrant/zzz/vmSetup/dotFiles/. /home/vagrant
+# copy the init script to root.
+#yes | cp -rf /vagrant/zzz/vmSetup/init/init.sh /home/vagrant
+
+# copies files over...
+# fix this so its only one place.
+# and it uses env variables.
+
+yes | cp --parent -rf /vagrant/zzz/vmSetup /home/vagrant/zzz/vmSetup/
+
+#mkdir -p /home/vagrant/zzz/vmSetup/
+#mkdir -p /home/vagrant/zzz/vmSetup/init
+#mkdir -p /home/vagrant/zzz/vmSetup/dev
+#mkdir -p /home/vagrant/zzz/vmSetup/shell
+#mkdir -p /home/vagrant/zzz/vmSetup/gui
+#yes | cp -rf /vagrant/zzz/vmSetup/dev/. /home/vagrant/zzz/vmSetup/dev
+#yes | cp -rf /vagrant/zzz/vmSetup/init/. /home/vagrant/zzz/vmSetup/init
+#yes | cp -rf /vagrant/zzz/vmSetup/shell/. /home/vagrant/zzz/vmSetup/shell
+#yes | cp -rf /vagrant/zzz/vmSetup/gui/. /home/vagrant/zzz/vmSetup/gui

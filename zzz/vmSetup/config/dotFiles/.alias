@@ -1,0 +1,13 @@
+echo ">>> ALIASES >"
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
+# DOT DOT DOT...
+alias l="ls -la"       # List in long format, include dotfiles
+alias ld="ls -ld */"   # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# paths
+alias aaGoVMSetup=/vagrant/zzz/vmSetup
+alias aaGoCode=/vagrant/zzz/code

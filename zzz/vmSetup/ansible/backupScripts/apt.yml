@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: Apt upgrading all packages.
+    apt: > 
+      update_cache=true
+      cache_valid_time=3600
+      upgrade=dist
+    become: true
